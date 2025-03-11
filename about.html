@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Likhitha Marrapu - About Me</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .about-container {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 2rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin-left: 250px;
+            margin-top: 80px;
+            width: calc(100% - 250px);
+            box-sizing: border-box;
+        }
+
+        .about-title {
+            font-size: 2.5rem;
+            color: #eeeeee;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .about-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 4px;
+            background: linear-gradient(90deg, #a1c4fd, #c2e9fb);
+            border-radius: 2px;
+            box-shadow: 0 0 10px #a1c4fd, 0 0 20px rgba(161, 196, 253, 0.5);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                opacity: 0.7;
+                box-shadow: 0 0 5px #a1c4fd, 0 0 10px rgba(161, 196, 253, 0.5);
+            }
+            50% {
+                opacity: 1;
+                box-shadow: 0 0 10px #a1c4fd, 0 0 20px rgba(161, 196, 253, 0.8);
+            }
+            100% {
+                opacity: 0.7;
+                box-shadow: 0 0 5px #a1c4fd, 0 0 10px rgba(161, 196, 253, 0.5);
+            }
+        }
+
+        .info-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: rgba(30, 30, 30, 0.7);
+            border-radius: 10px;
+            padding: 2rem;
+            border: 1px solid rgba(80, 80, 80, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .info-container:hover {
+            background-color: rgba(40, 40, 40, 0.8);
+            border-color: #a1c4fd;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(80, 80, 80, 0.3);
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #a1c4fd;
+            box-shadow: 0 0 20px rgba(161, 196, 253, 0.3);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background-color: rgba(40, 60, 80, 0.7);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .info-item:hover {
+            background-color: rgba(60, 80, 120, 0.5);
+            transform: translateX(5px);
+        }
+
+        .info-icon {
+            font-size: 1.5rem;
+            color: #a1c4fd;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(161, 196, 253, 0.1);
+            border-radius: 50%;
+        }
+
+        .info-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-label {
+            color: #c2e9fb;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-value {
+            color: #ffffff;
+            font-size: 1.1rem;
+            margin-top: 0.2rem;
+        }
+
+        .professional-aim {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background-color: rgba(40, 60, 80, 0.7);
+            border-radius: 8px;
+            line-height: 1.6;
+        }
+
+        .professional-aim p {
+            color: #eeeeee;
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .interests-title {
+            color: #c2e9fb;
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .interest-item {
+            background-color: rgba(40, 60, 80, 0.7);
+            color: #c2e9fb;
+            padding: 1rem;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .interest-item:hover {
+            background-color: rgba(60, 80, 120, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .interest-icon {
+            color: #a1c4fd;
+        }
+
+        @media (max-width: 1200px) {
+            .about-container {
+                width: calc(100% - 200px);
+                margin-left: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-container {
+                width: 100%;
+                margin-left: 0;
+                padding: 20px;
+                margin-top: 60px;
+            }
+            
+            .about-title {
+                font-size: 2rem;
+            }
+
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .info-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+</head>
+<body>
+    <div class="about-container">
+        <h1 class="about-title">ABOUT ME</h1>
+        
+        <div class="info-container">
+            <div class="profile-section">
+                <img src="./assets/IMG_20250309_200802.jpg" alt="Likhitha Marrapu" class="profile-image">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="info-text">
+                            <span class="info-label">Name</span>
+                            <span class="info-value">Likhitha Marrapu</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-text">
+                            <span class="info-label">Location</span>
+                            <span class="info-value">Kent, Ohio, USA</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-text">
+                            <span class="info-label">Email</span>
+                            <span class="info-value">likhithamarrapu811@gmail.com</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="info-text">
+                            <span class="info-label">Phone</span>
+                            <span class="info-value">+1 (330) 554-4997</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="professional-aim">
+                <p>Data Science isn't just a career path for me—it's my passion, my curiosity, and my constant pursuit of knowledge. From the moment I stepped into this field, I see it as an ever-expanding ocean of knowledge, where every new wave brings an opportunity to learn, innovate, and solve real-world problems. My excitement peaks when I build projects using Machine Learning and Deep Learning, transforming raw data into meaningful insights that drive impactful solutions. Even in my free time, I find joy in visualizing data with Power BI and Tableau, turning numbers into stories. I thrive on challenges, always looking to approach problems from a fresh perspective, driven by my love for research and innovation. Beyond academics, I am deeply committed to community service, believing that knowledge gains its true value when shared. Whether it's mentoring peers, teaching complex concepts, or contributing to real-world problem-solving, I see my journey in data science as a way to give back to society. Adventure fuels my spirit, be it traveling to new places or exploring cutting-edge technologies that redefine industries. My goal is to grow continuously, staying ahead of emerging trends while making meaningful contributions that create a lasting impact. To me, data science isn't just a field—it's a way to shape the future.</p>
+            </div>
+
+            <div class="interests">
+                <h2 class="interests-title">Interests</h2>
+                <div class="interests-grid">
+                    <div class="interest-item">
+                        <i class="fas fa-brain interest-icon"></i>
+                        Deep Learning
+                    </div>
+                    <div class="interest-item">
+                        <i class="fas fa-robot interest-icon"></i>
+                        AI/ML
+                    </div>
+                    <div class="interest-item">
+                        <i class="fas fa-chart-line interest-icon"></i>
+                        Analytics
+                    </div>
+                    <div class="interest-item">
+                        <i class="fas fa-microscope interest-icon"></i>
+                        Research
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="nav.js"></script>
+</body>
+</html>

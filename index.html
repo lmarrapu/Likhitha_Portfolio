@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Likhitha Marrapu | Portfolio</title>
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0f172a, #1e293b);
+            --accent-color: #38bdf8;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .content-left {
+            padding: 2rem;
+            z-index: 1;
+        }
+
+        .intro-text {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: slideUp 0.5s ease forwards;
+        }
+
+        .name {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: slideUp 0.5s ease forwards 0.2s;
+        }
+
+        .role-container {
+            height: 3rem;
+            margin: 1rem 0 2rem;
+            opacity: 0;
+            animation: slideUp 0.5s ease forwards 0.4s;
+        }
+
+        #role-text {
+            font-size: 1.7rem;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .description {
+            max-width: 600px;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: slideUp 0.5s ease forwards 0.6s;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            opacity: 0;
+            animation: slideUp 0.5s ease forwards 0.8s;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--accent-color);
+            color: #0f172a;
+        }
+
+        .btn-primary:hover {
+            background: #0ea5e9;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(56, 189, 248, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .content-right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .profile-container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards 1s;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+            animation: morphing 15s ease-in-out infinite;
+        }
+
+        .social-links {
+            position: fixed;
+            left: 2rem;
+            bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            opacity: 0;
+            animation: slideUp 0.5s ease forwards 1.2s;
+        }
+
+        .social-links a {
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        @keyframes morphing {
+            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            25% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
+            50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+            75% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
+            100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 968px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .content-left {
+                order: 2;
+            }
+
+            .content-right {
+                order: 1;
+                margin-bottom: 2rem;
+            }
+
+            .profile-container {
+                width: 300px;
+                height: 300px;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .social-links {
+                position: static;
+                flex-direction: row;
+                justify-content: center;
+                margin-top: 2rem;
+            }
+
+            .description {
+                margin: 0 auto 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="hero">
+        <div class="content-left">
+            <p class="intro-text">Welcome to my Data Universe!</p>
+            <h1 class="name">Likhitha Marrapu</h1>
+        
+
+            <div class="role-container">
+                <span id="role-text"></span>
+            </div>
+            <p class="description">
+                I make data tell stories—unraveling patterns, decoding complexities, and transforming numbers into impactful narratives. Every dataset holds a secret, and I thrive on uncovering its meaning. Step into a space where logic meets creativity, and data finds its true voice.
+            </p>
+            <div class="cta-buttons">
+                <a href="about.html" class="btn btn-primary">View Portfolio</a>
+                <a href="mailto:likhithamarrapu811@gmail.com" class="btn btn-secondary">Contact Me</a>
+            </div>
+        </div>
+        
+        <div class="content-right">
+            <div class="profile-container">
+                <img src="./assets/lik_head.png" alt="Likhitha Marrapu" class="profile-image">
+            </div>
+        </div>
+
+        
+    </main>
+
+    <script>
+        class TypeWriter {
+            constructor(element, words, wait = 3000) {
+                this.element = element;
+                this.words = words;
+                this.wait = wait;
+                this.txt = '';
+                this.wordIndex = 0;
+                this.isDeleting = false;
+                this.type();
+            }
+
+            type() {
+                const current = this.wordIndex % this.words.length;
+                const fullTxt = this.words[current];
+
+                if (this.isDeleting) {
+                    this.txt = fullTxt.substring(0, this.txt.length - 1);
+                } else {
+                    this.txt = fullTxt.substring(0, this.txt.length + 1);
+                }
+
+                this.element.textContent = this.txt;
+
+                let typeSpeed = this.isDeleting ? 50 : 100;
+
+                if (!this.isDeleting && this.txt === fullTxt) {
+                    typeSpeed = this.wait;
+                    this.isDeleting = true;
+                } else if (this.isDeleting && this.txt === '') {
+                    this.isDeleting = false;
+                    this.wordIndex++;
+                    typeSpeed = 500;
+                }
+
+                setTimeout(() => this.type(), typeSpeed);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            new TypeWriter(document.querySelector('#role-text'), [
+                'Data Scientist',
+                'A Data Explorer',
+                'I turn raw data into powerful insights',
+                'I predict the future with algorithms'
+                
+            ], 2000);
+        });
+    </script>
+</body>
+</html>

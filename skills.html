@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Likhitha Marrapu - Skills</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .skills-container {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 2rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin-left: 250px;
+            margin-top: 80px;
+            width: calc(100% - 250px);
+            box-sizing: border-box;
+        }
+
+        .skills-title {
+            font-size: 2.5rem;
+            color: #eeeeee;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background-color: rgba(30, 30, 30, 0.7);
+            border-radius: 10px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(80, 80, 80, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: float 5s ease-in-out infinite;
+            /* Make cards square */
+            aspect-ratio: 1 / 1;
+        }
+        
+        .skill-card:nth-child(odd) {
+            animation-delay: 0s;
+        }
+        
+        .skill-card:nth-child(even) {
+            animation-delay: 2.5s;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .skill-card:hover {
+            background-color: rgba(40, 40, 40, 0.9);
+            border-color: #a1c4fd;
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover .skill-icon {
+            transform: scale(1.1);
+        }
+
+        .skill-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .blue-line {
+            width: 70%;
+            height: 3px;
+            background: linear-gradient(90deg, rgba(33, 150, 243, 0.2), rgba(33, 150, 243, 1), rgba(33, 150, 243, 0.2));
+            border-radius: 3px;
+            margin-top: 0.5rem;
+            box-shadow: 0 0 10px rgba(33, 150, 243, 0.7);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blue-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+            animation: shine 2s infinite;
+        }
+
+        @keyframes shine {
+            100% {
+                left: 100%;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .skills-container {
+                width: calc(100% - 200px);
+                margin-left: 200px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .skills-container {
+                width: 100%;
+                margin-left: 0;
+                padding: 20px;
+                margin-top: 60px;
+            }
+            
+            .skills-title {
+                font-size: 2rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .skill-card {
+                padding: 1rem;
+            }
+            
+            .skill-icon {
+                font-size: 2.2rem;
+            }
+            
+            .skill-name {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+</head>
+<body>
+    <div class="skills-container">
+        <h1 class="skills-title">SKILLS</h1>
+        
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fas fa-robot skill-icon" style="color:#ffcc00;"></i>
+                <div class="skill-name">Machine Learning</div>
+                <div class="blue-line"></div>
+            </div>
+            
+            <div class="skill-card">
+                <i class="fas fa-chart-bar skill-icon" style="color:#4ecdc4;"></i>
+                <div class="skill-name">Data Visualization</div>
+                <div class="blue-line"></div>
+            </div>
+            
+            <div class="skill-card">
+                <i class="fas fa-database skill-icon" style="color:#FF8C00;"></i>
+                <div class="skill-name">SQL</div>
+                <div class="blue-line"></div>
+            </div>
+            
+            <div class="skill-card">
+                <i class="fab fa-python skill-icon" style="color:#3776AB;"></i>
+                <div class="skill-name">Python</div>
+                <div class="blue-line"></div>
+            </div>
+            
+            <div class="skill-card">
+                <i class="fas fa-chart-line skill-icon" style="color:#276DC3;"></i>
+                <div class="skill-name">R</div>
+                <div class="blue-line"></div>
+            </div>
+            
+            <div class="skill-card">
+                <i class="fas fa-brain skill-icon" style="color:#DC143C;"></i>
+                <div class="skill-name">Deep Learning</div>
+                <div class="blue-line"></div>
+            </div>
+            
+            <div class="skill-card">
+                <i class="fas fa-calculator skill-icon" style="color:#6b8e23;"></i>
+                <div class="skill-name">Statistical Analysis</div>
+                <div class="blue-line"></div>
+            </div>
+            
+            <div class="skill-card">
+                <i class="fas fa-sitemap skill-icon" style="color:#9370DB;"></i>
+                <div class="skill-name">Data Mining</div>
+                <div class="blue-line"></div>
+            </div>
+            
+            <div class="skill-card">
+                <i class="fas fa-server skill-icon" style="color:#1E90FF;"></i>
+                <div class="skill-name">Big Data Analytics</div>
+                <div class="blue-line"></div>
+            </div>
+            
+            <div class="skill-card">
+                <i class="fas fa-code-branch skill-icon" style="color:#cd5c5c;"></i>
+                <div class="skill-name">SAS</div>
+                <div class="blue-line"></div>
+            </div>
+            
+            <div class="skill-card">
+                <i class="fas fa-chart-pie skill-icon" style="color:#F2C811;"></i>
+                <div class="skill-name">Power BI</div>
+                <div class="blue-line"></div>
+            </div>
+            
+            <div class="skill-card">
+                <i class="fas fa-chart-bar skill-icon" style="color:#E97627;"></i>
+                <div class="skill-name">Tableau</div>
+                <div class="blue-line"></div>
+            </div>
+
+            <div class="skill-card">
+                <i class="fas fa-table skill-icon" style="color:#4ecdc4;"></i>
+                <div class="skill-name">MS Excel</div>
+                <div class="blue-line"></div>
+            </div>
+        </div>
+    </div>
+    <script src="nav.js"></script>
+</body>
+</html>
