@@ -24,6 +24,37 @@
             text-align: center;
             margin-bottom: 2rem;
             font-weight: 600;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .about-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 4px;
+            background: linear-gradient(90deg, #a1c4fd, #c2e9fb);
+            border-radius: 2px;
+            box-shadow: 0 0 10px #a1c4fd, 0 0 20px rgba(161, 196, 253, 0.5);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                opacity: 0.7;
+                box-shadow: 0 0 5px #a1c4fd, 0 0 10px rgba(161, 196, 253, 0.5);
+            }
+            50% {
+                opacity: 1;
+                box-shadow: 0 0 10px #a1c4fd, 0 0 20px rgba(161, 196, 253, 0.8);
+            }
+            100% {
+                opacity: 0.7;
+                box-shadow: 0 0 5px #a1c4fd, 0 0 10px rgba(161, 196, 253, 0.5);
+            }
         }
 
         .info-container {
@@ -146,11 +177,19 @@
             text-align: center;
             font-size: 1.1rem;
             transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
         }
 
         .interest-item:hover {
             background-color: rgba(60, 80, 120, 0.5);
             transform: translateY(-3px);
+        }
+
+        .interest-icon {
+            color: #a1c4fd;
         }
 
         @media (max-width: 1200px) {
@@ -194,7 +233,7 @@
         
         <div class="info-container">
             <div class="profile-section">
-                <img src="./assets/lik_head.png" alt="Likhitha Marrapu" class="profile-image">
+                <img src="./assets/IMG_20250309_200802.jpg" alt="Likhitha Marrapu" class="profile-image">
                 <div class="contact-info">
                     <div class="info-item">
                         <div class="info-icon">
@@ -236,16 +275,28 @@
             </div>
 
             <div class="professional-aim">
-                <p>As a Data Science professional with expertise in machine learning and deep learning, I am passionate about leveraging AI technologies to solve complex real-world problems. My focus lies in developing innovative solutions that transform raw data into actionable insights, particularly in healthcare analytics and predictive modeling. Through my research and projects, I strive to create impactful solutions that advance the field of data science and contribute to meaningful technological progress.</p>
+                <p>Data Science isn't just a career path for me—it's my passion, my curiosity, and my constant pursuit of knowledge. From the moment I stepped into this field, I see it as an ever-expanding ocean of knowledge, where every new wave brings an opportunity to learn, innovate, and solve real-world problems. My excitement peaks when I build projects using Machine Learning and Deep Learning, transforming raw data into meaningful insights that drive impactful solutions. Even in my free time, I find joy in visualizing data with Power BI and Tableau, turning numbers into stories. I thrive on challenges, always looking to approach problems from a fresh perspective, driven by my love for research and innovation. Beyond academics, I am deeply committed to community service, believing that knowledge gains its true value when shared. Whether it's mentoring peers, teaching complex concepts, or contributing to real-world problem-solving, I see my journey in data science as a way to give back to society. Adventure fuels my spirit, be it traveling to new places or exploring cutting-edge technologies that redefine industries. My goal is to grow continuously, staying ahead of emerging trends while making meaningful contributions that create a lasting impact. To me, data science isn't just a field—it's a way to shape the future.</p>
             </div>
 
             <div class="interests">
                 <h2 class="interests-title">Interests</h2>
                 <div class="interests-grid">
-                    <div class="interest-item">Deep Learning</div>
-                    <div class="interest-item">Machine Learning</div>
-                    <div class="interest-item">Healthcare Analytics</div>
-                    <div class="interest-item">Research</div>
+                    <div class="interest-item">
+                        <i class="fas fa-brain interest-icon"></i>
+                        Deep Learning
+                    </div>
+                    <div class="interest-item">
+                        <i class="fas fa-robot interest-icon"></i>
+                        AI/ML
+                    </div>
+                    <div class="interest-item">
+                        <i class="fas fa-chart-line interest-icon"></i>
+                        Analytics
+                    </div>
+                    <div class="interest-item">
+                        <i class="fas fa-microscope interest-icon"></i>
+                        Research
+                    </div>
                 </div>
             </div>
         </div>

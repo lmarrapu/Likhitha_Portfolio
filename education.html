@@ -23,21 +23,56 @@
             font-size: 2.5rem;
             color: #eeeeee;
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 0.5rem;
             font-weight: 600;
+            position: relative;
+        }
+        
+        .heading-underline {
+            position: relative;
+            width: 180px;
+            height: 4px;
+            background: linear-gradient(90deg, rgba(161, 196, 253, 0.2), rgba(161, 196, 253, 1), rgba(194, 233, 251, 1), rgba(161, 196, 253, 1), rgba(161, 196, 253, 0.2));
+            margin: 0 auto 2rem;
+            border-radius: 2px;
+            box-shadow: 0 0 10px rgba(161, 196, 253, 0.7), 0 0 20px rgba(161, 196, 253, 0.5);
+            overflow: hidden;
+        }
+        
+        .heading-underline::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% {
+                left: -100%;
+            }
+            50% {
+                left: 100%;
+            }
+            100% {
+                left: 100%;
+            }
         }
 
         .education-grid {
-            display: grid;
-            grid-template-columns: 1fr;
+            display: flex;
+            justify-content: center;
             gap: 2rem;
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .education-card {
-            display: flex;
-            align-items: center;
+            flex: 1;
+            max-width: 500px;
             background-color: rgba(30, 30, 30, 0.7);
             border-radius: 10px;
             padding: 25px;
@@ -45,6 +80,8 @@
             position: relative;
             overflow: hidden;
             border: 1px solid rgba(80, 80, 80, 0.3);
+            display: flex;
+            flex-direction: column;
         }
 
         .education-card:hover {
@@ -69,63 +106,118 @@
             height: 100%;
         }
 
-        /* Styling for university logo */
+        /* Center the logo above the degree title */
         .university-logo {
-            width: 100px; /* Adjust size as needed */
-            height: auto;
-            margin-right: 20px; /* Spacing between logo and text */
-            border-radius: 5px; /* Optional rounded corners */
-        }
-
-        .education-details {
-            flex-grow: 1;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            display: block;
+            border-radius: 50%;
+            background-color: white;
+            padding: 10px;
+            box-sizing: border-box;
         }
 
         .degree-title {
             font-size: 1.8rem;
-            color: #ffffff;
+            color: #a1c4fd; /* Changed from gold to blue */
             margin-top: 0;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: bold;
         }
 
-        .university {
-            color: #c2e9fb;
+        .status-badge {
+            background-color: #a1c4fd; /* Changed from gold to blue */
+            color: #000;
+            font-weight: bold;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .education-info {
+            margin-top: 10px;
+        }
+
+        .info-row {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: flex-start;
+        }
+
+        .info-icon {
+            color: #a1c4fd; /* Changed from gold to blue */
+            margin-right: 15px;
             font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
+            min-width: 20px;
+            text-align: center;
         }
 
-        .gpa {
-            color: #a1c4fd;
-            font-style: italic;
-            margin-bottom: 1rem;
+        .info-label {
+            font-weight: bold;
+            color: #a1c4fd; /* Changed from gold to blue */
+            margin-right: 10px;
+            min-width: 110px;
         }
 
-        .coursework-title {
-            color: #c2e9fb;
-            font-weight: 500;
-            margin-top: 1rem;
-            margin-bottom: 0.5rem;
+        .info-value {
+            color: white;
+            flex: 1;
+        }
+
+        .coursework-section {
+            margin-top: 20px;
+            border-top: 1px solid rgba(161, 196, 253, 0.3);
+            padding-top: 20px;
+        }
+
+        .coursework-heading {
+            display: flex;
+            align-items: center;
+            color: #a1c4fd; /* Changed from gold to blue */
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .coursework-icon {
+            margin-right: 10px;
+            font-size: 1.3rem;
         }
 
         .coursework-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 10px;
+            gap: 10px;
         }
 
         .course-item {
             background-color: rgba(40, 60, 80, 0.7);
-            color: #c2e9fb;
-            padding: 6px 12px;
+            color: white;
+            padding: 8px 15px;
             border-radius: 20px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
+            border: 1px solid rgba(161, 196, 253, 0.3);
             transition: all 0.3s ease;
         }
 
         .education-card:hover .course-item {
             background-color: rgba(60, 80, 120, 0.5);
+            border-color: rgba(161, 196, 253, 0.6);
+        }
+
+        .transcript-link {
+            color: #a1c4fd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .transcript-link:hover {
+            color: #c2e9fb;
+            text-decoration: underline;
         }
 
         /* Responsive adjustments */
@@ -133,6 +225,18 @@
             .education-container {
                 width: calc(100% - 200px);
                 margin-left: 200px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .education-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .education-card {
+                width: 100%;
+                max-width: 600px;
             }
         }
 
@@ -151,42 +255,89 @@
             .degree-title {
                 font-size: 1.6rem;
             }
-
-            .education-card {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
+            
             .university-logo {
-                margin-bottom: 15px;
-                margin-right: 0;
-                width: 80px;
+                width: 100px;
+                height: 100px;
+            }
+            
+            .info-row {
+                flex-direction: column;
+            }
+            
+            .info-label {
+                margin-bottom: 5px;
+            }
+            
+            .coursework-list {
+                justify-content: center;
             }
         }
-        
     </style>
     <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
 </head>
 <body>
     <div class="education-container">
         <h1 class="education-heading">EDUCATION</h1>
+        <div class="heading-underline"></div>
         
         <div class="education-grid">
             <!-- Master's Degree Card -->
             <div class="education-card">
+                <span class="status-badge">Current</span>
                 <img src="./assets/kent_logo.webp" alt="Kent State University Logo" class="university-logo">
-                <div class="education-details">
-                    <h2 class="degree-title">Master's Degree</h2>
-                    <p class="university">Kent State University</p>
-                    <p class="gpa">Master's in Data Science (CGPA: 3.95/4.0)</p>
-
-                    <h3 class="coursework-title">Relevant Coursework:</h3>
+                <h2 class="degree-title">Master's in Data Science</h2>
+                
+                <div class="education-info">
+                    <div class="info-row">
+                        <i class="fas fa-university info-icon"></i>
+                        <span class="info-label">Institution:</span>
+                        <span class="info-value">Kent State University</span>
+                    </div>
+                    
+                    <div class="info-row">
+                        <i class="fas fa-graduation-cap info-icon"></i>
+                        <span class="info-label">Graduation:</span>
+                        <span class="info-value">May 2025</span>
+                    </div>
+                    
+                    <div class="info-row">
+                        <i class="fas fa-star info-icon"></i>
+                        <span class="info-label">GPA:</span>
+                        <span class="info-value">3.88/4.0</span>
+                    </div>
+                    
+                    <div class="info-row">
+                        <i class="fas fa-book info-icon"></i>
+                        <span class="info-label">Major:</span>
+                        <span class="info-value">Data Science</span>
+                    </div>
+                    
+                    <div class="info-row">
+                        <i class="fas fa-file-alt info-icon"></i>
+                        <span class="info-label">Transcripts:</span>
+                        <span class="info-value"><a href="https://drive.google.com/file/d/1f0Q-Hw7f5eWbBxlXwbA28aiw5KpDz3wE/view?usp=sharing" class="transcript-link" target="_blank">View Transcripts</a></span>
+                    </div>
+                </div>
+                
+                <div class="coursework-section">
+                    <div class="coursework-heading">
+                        <i class="fas fa-laptop-code coursework-icon"></i>
+                        <span>Relevant Coursework</span>
+                    </div>
                     <div class="coursework-list">
-                        <span class="course-item">Advanced Database Systems</span>
+                        <span class="course-item">Advanced Database Systems Design</span>
                         <span class="course-item">Computational Statistics</span>
-                        <span class="course-item">Machine Learning</span>
+                        <span class="course-item">Applied Statistics</span>
                         <span class="course-item">Big Data Analytics</span>
+                        <span class="course-item">Data Mining Techniques</span>
+                        <span class="course-item">Computational Health Informatics</span>
+                        <span class="course-item">Statistical Learning</span>
+                        <span class="course-item">Probabilistic Data Management</span>
+                        <span class="course-item">R Programming </span>
+                        <span class="course-item">Python Programming</span>
+                        <span class="course-item">Information Visualization</span>
+                        <span class="course-item">Tableau</span>
                     </div>
                 </div>
             </div>
@@ -194,16 +345,47 @@
             <!-- Bachelor's Degree Card -->
             <div class="education-card">
                 <img src="./assets/Osmania_logo.png" alt="Osmania University Logo" class="university-logo">
-                <div class="education-details">
-                    <h2 class="degree-title">Bachelor's Degree</h2>
-                    <p class="university">Osmania University</p>
-                    <p class="gpa">BSc in Mathematics, Statistics, and Computer Science (GPA: 9.56/10)</p>
-
-                    <h3 class="coursework-title">Relevant Coursework:</h3>
+                <h2 class="degree-title">Bachelor's in Mathematics, Statistics, and Computer Science</h2>
+                
+                <div class="education-info">
+                    <div class="info-row">
+                        <i class="fas fa-university info-icon"></i>
+                        <span class="info-label">Institution:</span>
+                        <span class="info-value">Osmania University</span>
+                    </div>
+                    
+                    <div class="info-row">
+                        <i class="fas fa-graduation-cap info-icon"></i>
+                        <span class="info-label">Graduation:</span>
+                        <span class="info-value">October 2020</span>
+                    </div>
+                    
+                    <div class="info-row">
+                        <i class="fas fa-star info-icon"></i>
+                        <span class="info-label">GPA:</span>
+                        <span class="info-value">9.22/10</span>
+                    </div>
+                    
+                    <div class="info-row">
+                        <i class="fas fa-book info-icon"></i>
+                        <span class="info-label">Major:</span>
+                        <span class="info-value">Mathematics, Statistics, and Computer Science</span>
+                    </div>
+                </div>
+                
+                <div class="coursework-section">
+                    <div class="coursework-heading">
+                        <i class="fas fa-laptop-code coursework-icon"></i>
+                        <span>Relevant Coursework</span>
+                    </div>
                     <div class="coursework-list">
-                        <span class="course-item">Probability & Statistics</span>
-                        <span class="course-item">Data Structures</span>
-                        <span class="course-item">Algorithm Design</span>
+                        <span class="course-item">Statistics</span>
+                        <span class="course-item">Probability Theory</span>
+                        <span class="course-item">Data Structures and Algorithms</span>
+                        <span class="course-item">Database Management Systems (DBMS)</span>
+                        <span class="course-item">Calculus</span>
+                        <span class="course-item">Linear Algebra</span>
+                        <span class="course-item">Computer Programming</span>
                         <span class="course-item">Numerical Computing</span>
                     </div>
                 </div>
