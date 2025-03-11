@@ -24,31 +24,6 @@
             text-align: center;
             margin-bottom: 2rem;
             font-weight: 600;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .projects-title::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 5px;
-            background: linear-gradient(90deg, #00d2ff, #3a7bd5);
-            border-radius: 10px;
-            box-shadow: 0 0 15px #00d2ff, 0 0 25px #3a7bd5;
-            animation: glow 1.5s infinite alternate;
-        }
-
-        @keyframes glow {
-            from {
-                box-shadow: 0 0 15px #00d2ff, 0 0 25px #3a7bd5;
-            }
-            to {
-                box-shadow: 0 0 25px #00d2ff, 0 0 40px #3a7bd5;
-            }
         }
 
         .projects-intro {
@@ -72,39 +47,21 @@
             background-color: rgba(30, 30, 30, 0.7);
             border-radius: 15px;
             overflow: hidden;
-            border: 2px solid rgba(80, 80, 80, 0.3);
+            border: 1px solid rgba(80, 80, 80, 0.3);
             transition: all 0.3s ease;
-            position: relative;
         }
 
         .project-card:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            border: 2px solid transparent;
-            border-image: linear-gradient(45deg, #00d2ff, #3a7bd5, #a1c4fd, #00d2ff);
-            border-image-slice: 1;
-            animation: borderGlow 1.5s infinite alternate;
-        }
-
-        @keyframes borderGlow {
-            from {
-                box-shadow: 0 0 10px rgba(161, 196, 253, 0.5), 0 0 20px rgba(0, 210, 255, 0.3);
-            }
-            to {
-                box-shadow: 0 0 20px rgba(161, 196, 253, 0.8), 0 0 30px rgba(0, 210, 255, 0.5);
-            }
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+            border-color: #a1c4fd;
         }
 
         .project-image {
             width: 100%;
-            height: 220px;
+            height: 200px;
             object-fit: cover;
             border-bottom: 1px solid rgba(80, 80, 80, 0.3);
-            transition: transform 0.5s ease;
-        }
-
-        .project-card:hover .project-image {
-            transform: scale(1.05);
         }
 
         .project-content {
@@ -115,43 +72,18 @@
             color: #ffffff;
             font-size: 1.5rem;
             margin: 0 0 1rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .project-title i {
-            color: #a1c4fd;
-            font-size: 1.3rem;
         }
 
         .project-description {
             color: #eeeeee;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             line-height: 1.6;
-            font-size: 0.95rem;
         }
 
         .project-skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 1.5rem;
-        }
-
-        .skill-tag {
-            background: linear-gradient(135deg, rgba(161, 196, 253, 0.2), rgba(194, 233, 251, 0.2));
             color: #c2e9fb;
-            padding: 5px 10px;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            border: 1px solid rgba(161, 196, 253, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            background: linear-gradient(135deg, rgba(161, 196, 253, 0.4), rgba(194, 233, 251, 0.4));
-            transform: translateY(-2px);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
         }
 
         .project-link {
@@ -160,36 +92,14 @@
             color: #1a1a1a;
             text-decoration: none;
             padding: 0.8rem 1.5rem;
-            border-radius: 8px;
+            border-radius: 5px;
             font-weight: 600;
             transition: all 0.3s ease;
-            position: relative;
-            z-index: 1;
-            overflow: hidden;
-        }
-
-        .project-link::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #c2e9fb 0%, #a1c4fd 100%);
-            z-index: -1;
-            transition: transform 0.6s cubic-bezier(0.65, 0.05, 0.36, 1);
-            transform: scaleX(0);
-            transform-origin: right;
-        }
-
-        .project-link:hover::before {
-            transform: scaleX(1);
-            transform-origin: left;
         }
 
         .project-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 7px 20px rgba(161, 196, 253, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(161, 196, 253, 0.4);
         }
 
         @media (max-width: 1200px) {
@@ -225,87 +135,36 @@
 <body>
     <div class="projects-container">
         <h1 class="projects-title">PROJECTS</h1>
+        <p class="projects-intro">Showcasing my expertise in data science, machine learning, and deep learning through hands-on projects.</p>
         
         <div class="projects-grid">
             <div class="project-card">
                 <img src="./assets/AF.webp" alt="Atrial Fibrillation Detection" class="project-image">
                 <div class="project-content">
-                    <h2 class="project-title">
-                        <i class="fas fa-heartbeat"></i>
-                        Atrial Fibrillation Detection
-                    </h2>
-                    <p class="project-description">Developed an advanced Atrial Fibrillation (AF) detection system using ECG signals from the PhysioNet dataset, achieving an impressive 76.15% accuracy. The project involved implementing and optimizing multiple machine learning models, including Support Vector Machines (SVM), LightGBM, Convolutional Neural Networks (CNN), and a Hybrid model, to effectively handle class imbalance and improve classification performance. Key preprocessing steps included noise filtering, signal inversion correction, and feature extraction from both time-domain and frequency-domain characteristics. The models performance was thoroughly evaluated using metrics like F1-score and ROC-AUC, ensuring robust and reliable AF detection, with real-world applications in early diagnostics and remote monitoring.</p>
-                    <div class="project-skills">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Machine Learning</span>
-                        <span class="skill-tag">Hybrid Models</span>
-                        <span class="skill-tag">ECG Signal Processing</span>
-                        <span class="skill-tag">Stratified Sampling</span>
-                    </div>
-                    <a class="project-link" href="https://github.com/lmarrapu/Atrial_Fibrillation_Detection" target="_blank">
-                        <i class="fab fa-github"></i> View Project
-                    </a>
+                    <h2 class="project-title">Atrial Fibrillation Detection</h2>
+                    <p class="project-description">Developed an ECG-based Atrial Fibrillation detection system using PhysioNet data, achieving 76.15% accuracy.</p>
+                    <p class="project-skills">Skills: Machine Learning, SVM, LightGBM, CNN</p>
+                    <a class="project-link" href="https://github.com/lmarrapu/Atrial_Fibrillation_Detection" target="_blank">View Project</a>
                 </div>
             </div>
             
             <div class="project-card">
                 <img src="./assets/twitter.webp" alt="Twitter Sentiment Analysis" class="project-image">
                 <div class="project-content">
-                    <h2 class="project-title">
-                        <i class="fab fa-twitter"></i>
-                        Twitter Sentiment Analysis
-                    </h2>
-                    <p class="project-description">This project focuses on performing sentiment analysis on 1.6 million tweets using Natural Language Processing (NLP) and machine learning techniques. A robust NLP pipeline was developed for effective text normalization, custom tokenization, and contextual lemmatization. Various machine learning models, including Logistic Regression, Naive Bayes, and Neural Networks, were built and optimized to classify sentiments as positive, negative, or neutral. The project achieved 78% accuracy through advanced techniques such as SMOTE for handling class imbalance and feature engineering with TF-IDF for enhanced text representation. The models were evaluated using metrics like accuracy, precision, recall, and F1-score to ensure reliable sentiment classification.</p>
-                    <div class="project-skills">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Natural Language Processing</span>
-                        <span class="skill-tag">Sentimental Analysis</span>
-                        <span class="skill-tag">Machine Learning</span>
-                    </div>
-                    <a class="project-link" href="https://github.com/lmarrapu/Sentimental_Analysis-Emotion_Classifier_From_Tweet" target="_blank">
-                        <i class="fab fa-github"></i> View Project
-                    </a>
+                    <h2 class="project-title">Twitter Sentiment Analysis</h2>
+                    <p class="project-description">Built an NLP pipeline to analyze sentiment in 1.6M tweets, optimizing models to achieve 78% accuracy.</p>
+                    <p class="project-skills">Skills: NLP, Logistic Regression, Neural Networks</p>
+                    <a class="project-link" href="https://github.com/lmarrapu/Sentimental_Analysis-Emotion_Classifier_From_Tweet" target="_blank">View Project</a>
                 </div>
             </div>
             
             <div class="project-card">
                 <img src="./assets/churn.webp" alt="Churn Prediction Analysis" class="project-image">
                 <div class="project-content">
-                    <h2 class="project-title">
-                        <i class="fas fa-users-slash"></i>
-                        Churn Prediction Analysis
-                    </h2>
-                    <p class="project-description">Analyzed critical factors influencing customer churn in the telecom industry by leveraging the Telco Customer Churn Dataset and employing advanced data analysis techniques. Conducted extensive Exploratory Data Analysis (EDA) to uncover patterns, applied feature engineering to enhance model performance, and developed predictive models including Logistic Regression, Random Forest, and Support Vector Machines (SVM), achieving up to 92% accuracy. Optimized models using regularization and feature interactions, providing actionable insights for customer retention strategies.</p>
-                    <div class="project-skills">
-                        <span class="skill-tag">R Programming</span>
-                        <span class="skill-tag">Statistical Analysis</span>
-                        <span class="skill-tag">Machine Learning</span>
-                        <span class="skill-tag">Feature Engineering</span>
-                        <span class="skill-tag">Cross Validation</span>
-                        <span class="skill-tag">Hyperparameter Tuning</span>
-                    </div>
-                    <a class="project-link" href="https://github.com/lmarrapu/Telecom-Churn-Prediction-ML" target="_blank">
-                        <i class="fab fa-github"></i> View Project
-                    </a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <img src="./assets/Hospl_image.webp" alt="Hospitality Analytics Using Power BI" class="project-image">
-                <div class="project-content">
-                    <h2 class="project-title">
-                        <i class="fas fa-hotel"></i>
-                        Hospitality Analytics Using Power BI
-                    </h2>
-                    <p class="project-description">AtliQ Grands, a luxury hotel chain, faced declining revenue and market share due to rising competition and ineffective decision-making. To address this, an advanced Business Intelligence (BI) solution was developed using Power BI, providing real-time insights into Revenue Analytics, Booking Trends, and Guest Experience. The interactive dashboards uncover key business trends, such as revenue performance across cities, booking patterns, and guest satisfaction metrics, enabling data-driven strategies to optimize occupancy rates and enhance guest experiences. Insights revealed critical areas for improvement, including high cancellation rates, underperforming room categories, and reliance on third-party bookings. This solution empowers AtliQ Grands to refine its pricing strategy, improve direct bookings, and elevate customer satisfaction, driving sustainable business growth.</p>
-                    <div class="project-skills">
-                        <span class="skill-tag">Power BI</span>
-                        <span class="skill-tag">DAX</span>
-                        <span class="skill-tag">Excel</span>
-                    </div>
-                    <a class="project-link" href="https://github.com/lmarrapu/Hospitality_Analytics_Atliq_Grand_Power--BI" target="_blank">
-                        <i class="fab fa-github"></i> View Project
-                    </a>
+                    <h2 class="project-title">Churn Prediction Analysis</h2>
+                    <p class="project-description">Applied machine learning models to predict customer churn with 92% accuracy, aiding telecom retention strategies.</p>
+                    <p class="project-skills">Skills: Machine Learning, Random Forest, Feature Engineering</p>
+                    <a class="project-link" href="https://github.com/lmarrapu/Telecom-Churn-Prediction-ML" target="_blank">View Project</a>
                 </div>
             </div>
         </div>

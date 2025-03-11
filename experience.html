@@ -5,561 +5,245 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Likhitha Marrapu - Experience</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Add Font Awesome for icons if needed -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         /* Experience Content Styles - Work Experience Only */
-        body {
-            background-color: #1a1a1a;
-            color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
 
-        /* Main content area - adjusted to account for sidebar */
-        .main-content-area {
-            padding: 30px;
-            width: calc(100% - 250px); /* Adjust based on your sidebar width */
-            margin-left: 250px; /* Match your sidebar width */
-            margin-top: 80px; /* Account for header height */
-            box-sizing: border-box;
-        }
+/* Main content area - adjusted to account for sidebar */
+.main-content-area {
+    padding: 30px;
+    width: calc(100% - 250px); /* Adjust based on your sidebar width */
+    margin-left: 250px; /* Match your sidebar width */
+    margin-top: 80px; /* Account for header height */
+    box-sizing: border-box;
+}
 
-        /* Headings */
-        .experience-heading {
-            font-size: 2.5rem;
-            color: #eeeeee;
-            text-align: center;
-            text-transform: none;
-            margin-bottom: 15px;
-            font-weight: 600;
-            position: relative;
-            letter-spacing: 4px;
-            text-shadow: 0 0 15px rgba(161, 196, 253, 0.5);
-        }
+/* Headings */
+.experience-heading {
+    font-size: 2.5rem; /* Slightly reduced size */
+    color: #eeeeee;
+    text-align: center;
+    text-transform: none;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
 
-        /* Fancy shiny line under heading */
-        .heading-underline {
-            position: relative;
-            width: 220px;
-            height: 4px;
-            background: linear-gradient(90deg, rgba(161, 196, 253, 0.2), rgba(161, 196, 253, 1), rgba(194, 233, 251, 1), rgba(161, 196, 253, 1), rgba(161, 196, 253, 0.2));
-            margin: 0 auto 2rem;
-            border-radius: 2px;
-            box-shadow: 0 0 10px rgba(161, 196, 253, 0.7), 0 0 20px rgba(161, 196, 253, 0.5);
-            overflow: hidden;
-        }
-        
-        .heading-underline::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
-            animation: shine 3s infinite;
-        }
-        
-        @keyframes shine {
-            0% {
-                left: -100%;
-            }
-            50% {
-                left: 100%;
-            }
-            100% {
-                left: 100%;
-            }
-        }
+.experience-intro {
+    color: #a1c4fd;
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    font-weight: 400;
+}
 
-        .experience-intro {
-            color: #a1c4fd;
-            text-align: center;
-            font-size: 1.1rem;
-            margin-bottom: 40px;
-            font-weight: 400;
-        }
+/* Experience Grid - made responsive */
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
 
-        /* Experience timeline container */
-        .experience-timeline {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            position: relative;
-        }
+/* Experience Cards */
+.experience-card {
+    background-color: rgba(30, 30, 30, 0.7);
+    border-radius: 10px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(80, 80, 80, 0.3);
+}
 
-        /* Timeline vertical line - REMOVED */
-        /* .experience-timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            width: 4px;
-            background: linear-gradient(to bottom, rgba(161, 196, 253, 0.8), rgba(194, 233, 251, 0.8));
-            transform: translateX(-50%);
-            z-index: -1;
-            box-shadow: 0 0 10px rgba(161, 196, 253, 0.5);
-            border-radius: 2px;
-        } */
+.experience-card:hover {
+    transform: translateY(-5px);
+    background-color: rgba(40, 40, 40, 0.8);
+    border-color: #a1c4fd;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
 
-        /* Experience card container */
-        .experience-card-container {
-            display: flex;
-            margin-bottom: 80px;
-            position: relative;
-            min-height: 320px;
-            perspective: 1000px;
-        }
+.experience-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background: linear-gradient(to bottom, #a1c4fd, #c2e9fb);
+    transition: height 0.3s ease;
+}
 
-        /* Company logo container */
-        .company-logo-container {
-            flex: 0 0 30%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            padding: 20px;
-            opacity: 0;
-            animation: floatFromLeft 1.5s forwards;
-        }
+.experience-card:hover::before {
+    height: 100%;
+}
 
-        .company-logo {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 15px;
-            box-shadow: 0 0 25px rgba(161, 196, 253, 0.9), 0 0 15px rgba(194, 233, 251, 0.7);
-            transition: all 0.5s ease;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            position: relative;
-            z-index: 1;
-        }
+/* Title and date */
+.experience-title-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
 
-        .company-logo::before {
-            content: '';
-            position: absolute;
-            top: -5px;
-            left: -5px;
-            right: -5px;
-            bottom: -5px;
-            background: linear-gradient(45deg, #a1c4fd, #c2e9fb, #a1c4fd, #c2e9fb);
-            z-index: -1;
-            border-radius: 50%;
-            animation: rotate 6s linear infinite;
-        }
+.experience-title {
+    font-size: 1.6rem;
+    color: #ffffff;
+    margin: 0;
+    margin-right: 10px;
+}
 
-        @keyframes rotate {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
+.experience-date {
+    color: #a1c4fd;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
 
-        .company-logo img {
-            max-width: 80%;
-            max-height: 80%;
-            object-fit: contain;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
+.experience-company {
+    color: #c2e9fb;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
 
-        /* Experience detail container */
-        .experience-detail-container {
-            flex: 0 0 70%;
-            opacity: 0;
-            animation: floatFromRight 1.5s forwards;
-        }
+/* List styling */
+.experience-details {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
 
-        /* Animation delay for staggered entries */
-        .experience-card-container:nth-child(2) .company-logo-container {
-            animation-delay: 0.3s;
-        }
+.experience-details li {
+    color: #dddddd;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
 
-        .experience-card-container:nth-child(2) .experience-detail-container {
-            animation-delay: 0.3s;
-        }
+/* Skills Tags */
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+}
 
-        /* Float animations */
-        @keyframes floatFromLeft {
-            0% {
-                transform: translateX(-80px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
+.skill-tag {
+    background-color: rgba(40, 60, 80, 0.7);
+    color: #c2e9fb;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
 
-        @keyframes floatFromRight {
-            0% {
-                transform: translateX(80px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
+.experience-card:hover .skill-tag {
+    background-color: rgba(60, 80, 120, 0.5);
+}
 
-        /* Experience Cards */
-        .experience-card {
-            background-color: rgba(30, 30, 30, 0.85);
-            border-radius: 15px;
-            padding: 30px;
-            transition: all 0.5s ease;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(80, 80, 80, 0.3);
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
-            transform: translateZ(0);
-        }
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .main-content-area {
+        width: calc(100% - 200px);
+        margin-left: 200px;
+    }
+}
 
-        .experience-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            background-color: rgba(40, 40, 40, 0.9);
-            border-color: #a1c4fd;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
-        }
+@media (max-width: 960px) {
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .experience-title-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .experience-date {
+        margin-top: 5px;
+    }
+    
+    .experience-title {
+        font-size: 1.6rem;
+    }
+}
 
-        .experience-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 0;
-            background: linear-gradient(to bottom, #a1c4fd, #c2e9fb);
-            transition: height 0.5s ease;
-        }
-
-        .experience-card:hover::before {
-            height: 100%;
-            box-shadow: 0 0 15px rgba(161, 196, 253, 0.7);
-        }
-
-        /* Glowing effect when hovering */
-        .experience-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at center, rgba(161, 196, 253, 0.1), transparent 70%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            pointer-events: none;
-        }
-
-        .experience-card:hover::after {
-            opacity: 1;
-        }
-
-        /* Title and date */
-        .experience-title-wrap {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-        }
-
-        .experience-title {
-            font-size: 1.8rem;
-            color: #ffffff;
-            margin: 0;
-            margin-right: 10px;
-            position: relative;
-            display: inline-block;
-            text-shadow: 0 0 10px rgba(161, 196, 253, 0.3);
-        }
-
-        .experience-title::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(to right, #a1c4fd, #c2e9fb);
-            transition: width 0.3s ease;
-        }
-
-        .experience-card:hover .experience-title::after {
-            width: 100%;
-        }
-
-        .experience-date {
-            color: #a1c4fd;
-            font-size: 1rem;
-            white-space: nowrap;
-            font-weight: 500;
-            padding: 5px 12px;
-            background-color: rgba(30, 40, 60, 0.5);
-            border-radius: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .experience-company {
-            color: #c2e9fb;
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-        }
-
-        .experience-company::before {
-            content: '\f0b1'; /* Briefcase icon */
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            margin-right: 10px;
-            font-size: 1rem;
-        }
-
-        /* List styling */
-        .experience-details {
-            list-style-type: none;
-            padding-left: 10px;
-            margin-bottom: 20px;
-        }
-
-        .experience-details li {
-            color: #dddddd;
-            margin-bottom: 15px;
-            line-height: 1.7;
-            padding-left: 25px;
-            position: relative;
-        }
-
-        .experience-details li::before {
-            content: '\f00c'; /* Checkmark icon */
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            color: #a1c4fd;
-            position: absolute;
-            left: 0;
-            top: 2px;
-        }
-
-        /* Skills Tags */
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 25px;
-        }
-
-        .skill-tag {
-            background-color: rgba(40, 60, 80, 0.7);
-            color: #c2e9fb;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        .experience-card:hover .skill-tag {
-            background-color: rgba(60, 90, 120, 0.7);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 1200px) {
-            .main-content-area {
-                width: calc(100% - 200px);
-                margin-left: 200px;
-            }
-            
-            .company-logo {
-                width: 150px;
-                height: 150px;
-            }
-        }
-
-        @media (max-width: 992px) {
-            /* Removed timeline reference */
-            
-            .experience-card-container {
-                flex-direction: column;
-                align-items: flex-start;
-                margin-bottom: 60px;
-                margin-left: 50px;
-            }
-            
-            .company-logo-container {
-                flex: 0 0 auto;
-                margin-bottom: 20px;
-                margin-left: -20px;
-            }
-            
-            .experience-detail-container {
-                flex: 0 0 auto;
-                width: 100%;
-            }
-            
-            .company-logo {
-                width: 130px;
-                height: 130px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .main-content-area {
-                width: 100%;
-                margin-left: 0;
-                padding: 20px;
-                margin-top: 60px;
-            }
-            
-            .experience-heading {
-                font-size: 2.2rem;
-            }
-            
-            .experience-title-wrap {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .experience-date {
-                margin-top: 10px;
-            }
-            
-            .experience-title {
-                font-size: 1.6rem;
-            }
-            
-            /* Removed timeline reference */
-            
-            .experience-card-container {
-                margin-left: 0;
-            }
-            
-            .company-logo {
-                width: 120px;
-                height: 120px;
-            }
-        }
+@media (max-width: 768px) {
+    .main-content-area {
+        width: 100%;
+        margin-left: 0;
+        padding: 20px;
+        margin-top: 60px;
+    }
+    
+    .experience-heading {
+        font-size: 2rem;
+    }
+}
     </style>
     <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
 </head>
 <body>
     <!-- Main Content Area - Only Work Experience Section -->
-    <div class="main-content-area">
-        <h1 class="experience-heading">EXPERIENCE</h1>
-        <div class="heading-underline"></div>
-        <p class="experience-intro">A journey through my professional growth and contributions</p>
+<div class="main-content-area">
+    <h1 class="experience-heading">My Professional Experience</h1>
+    <p class="experience-intro">Passionate about applying data science techniques to solve real-world problems.</p>
 
-        <div class="experience-timeline">
-            <!-- Experience 1 - Research Assistant -->
-            <div class="experience-card-container">
-                <div class="company-logo-container">
-                    <div class="company-logo">
-                        <img src="./assets/kent_logo.webp" alt="Kent State University Logo">
-                    </div>
-                </div>
-                <div class="experience-detail-container">
-                    <div class="experience-card">
-                        <div class="experience-title-wrap">
-                            <h2 class="experience-title">Research Assistant</h2>
-                            <span class="experience-date"><i class="fas fa-calendar-alt"></i> Jan 2024 – Jan 2025</span>
-                        </div>
-                        <h3 class="experience-company">Kent State University</h3>
-                        <ul class="experience-details">
-                            <li>Designed and optimized deep learning models (Xception, Inception, ResNet-50) for medical image classification, achieving 98.51% accuracy and reducing misclassification rates by 85%.</li>
-                            <li>Applied advanced data preprocessing and hyperparameter tuning techniques, reducing training time by 30% while enhancing model generalization.</li>
-                            <li>Developed a hybrid model architecture that improved classification efficiency by 25% while maintaining high performance across diverse blood cell categories.</li>
-                            <li>Presented research findings on AI-driven diagnostic solutions at FICC 2025, showcasing expertise in applying machine learning to healthcare analytics.</li>
-                        </ul>
-                        <div class="skill-tags">
-                            <span class="skill-tag"><i class="fas fa-brain"></i> Deep Learning</span>
-                            <span class="skill-tag"><i class="fas fa-microscope"></i> Medical Imaging</span>
-                            <span class="skill-tag"><i class="fas fa-code"></i> Python</span>
-                            <span class="skill-tag"><i class="fas fa-flask"></i> Research</span>
-                        </div>
-                    </div>
-                </div>
+    <div class="experience-grid">
+        <!-- Experience Card 1 -->
+        <div class="experience-card">
+            <div class="experience-title-wrap">
+                <h2 class="experience-title">Research Assistant</h2>
+                <span class="experience-date">Jan 2024 – July 2024</span>
             </div>
+            <h3 class="experience-company">Kent State University</h3>
+            <ul class="experience-details">
+                <li>Designed and optimized deep learning models (Xception, Inception, ResNet-50) for medical image classification, achieving 98.51% accuracy and reducing misclassification rates by 85%.</li>
+                <li>Applied advanced data preprocessing and hyperparameter tuning techniques, reducing training time by 30% while enhancing model generalization.</li>
+                <li>Developed a hybrid model architecture that improved classification efficiency by 25% while maintaining high performance across diverse blood cell categories.</li>
+                <li>Presented research findings on AI-driven diagnostic solutions at FICC 2025, showcasing expertise in applying machine learning to healthcare analytics.</li>
+            </ul>
+            <div class="skill-tags">
+                <span class="skill-tag">Deep Learning</span>
+                <span class="skill-tag">Medical Imaging</span>
+                <span class="skill-tag">TensorFlow</span>
+                <span class="skill-tag">Research</span>
+            </div>
+        </div>
 
-            <!-- Experience 2 - Data Modeler -->
-            <div class="experience-card-container">
-                <div class="company-logo-container">
-                    <div class="company-logo">
-                        <img src="./assets/skywest.jpeg" alt="SkyWest Immigration Consultant Logo">
-                    </div>
-                </div>
-                <div class="experience-detail-container">
-                    <div class="experience-card">
-                        <div class="experience-title-wrap">
-                            <h2 class="experience-title">Data Modeler</h2>
-                            <span class="experience-date"><i class="fas fa-calendar-alt"></i> Oct 2020 – Oct 2022</span>
-                        </div>
-                        <h3 class="experience-company">SkyWest Immigration Consultant</h3>
-                        <ul class="experience-details">
-                            <li>Managed and structured large datasets, improving data accuracy and accessibility, leading to a 30% boost in reporting efficiency.</li>
-                            <li>Identified and resolved data quality issues, reducing errors by 20% and ensuring higher reliability for business analysis.</li>
-                            <li>Streamlined data organization and optimized data entry workflows, cutting data processing time by 25% and enhancing operational performance.</li>
-                        </ul>
-                        <div class="skill-tags">
-                            <span class="skill-tag"><i class="fas fa-database"></i> Data Management</span>
-                            <span class="skill-tag"><i class="fas fa-check-circle"></i> Data Quality</span>
-                            <span class="skill-tag"><i class="fas fa-table"></i> MS Excel</span>
-                        </div>
-                    </div>
-                </div>
+        <!-- Experience Card 2 -->
+        <div class="experience-card">
+            <div class="experience-title-wrap">
+                <h2 class="experience-title">Data Modeler</h2>
+                <span class="experience-date">Oct 2020 – Oct 2022</span>
+            </div>
+            <h3 class="experience-company">SkyWest Immigration Consultant</h3>
+            <ul class="experience-details">
+                <li>Managed and structured large datasets, improving data accuracy and accessibility, leading to a 30% boost in reporting efficiency.</li>
+                <li>Identified and resolved data quality issues, reducing errors by 20% and ensuring higher reliability for business analysis.</li>
+                <li>Streamlined data organization and optimized data entry workflows, cutting data processing time by 25% and enhancing operational performance.</li>
+            </ul>
+            <div class="skill-tags">
+                <span class="skill-tag">Data Management</span>
+                <span class="skill-tag">Data Quality</span>
+                <span class="skill-tag">Workflow Optimization</span>
             </div>
         </div>
     </div>
+</div>
 
     <script src="nav.js"></script>
     <script>
-        // Scroll animation to reveal cards when scrolled into view
+        // Add hover effect functionality if needed beyond CSS
         document.addEventListener('DOMContentLoaded', function() {
-            // Add animations for elements when they come into view
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const card = entry.target;
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                        observer.unobserve(card);
-                    }
-                });
-            }, observerOptions);
-
-            // Observe experience cards
-            document.querySelectorAll('.experience-card-container').forEach(card => {
-                observer.observe(card);
-            });
-
-            // Add hover effects for logos
-            const logos = document.querySelectorAll('.company-logo');
-            logos.forEach(logo => {
-                logo.addEventListener('mouseenter', function() {
-                    this.style.transform = 'scale(1.1) rotate(5deg)';
-                    this.querySelector('img').style.transform = 'scale(1.1)';
+            const experienceCards = document.querySelectorAll('.experience-card');
+            
+            experienceCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.classList.add('card-hover');
                 });
                 
-                logo.addEventListener('mouseleave', function() {
-                    this.style.transform = 'scale(1) rotate(0deg)';
-                    this.querySelector('img').style.transform = 'scale(1)';
+                card.addEventListener('mouseleave', function() {
+                    this.classList.remove('card-hover');
                 });
             });
         });

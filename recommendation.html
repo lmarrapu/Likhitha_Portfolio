@@ -7,282 +7,86 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Recommendations page modern styles */
-        body {
-            background: linear-gradient(135deg, #111111 0%, #222222 100%);
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: white;
-        }
-        
+        /* Recommendations page specific styles */
         .recommendations-container {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 2rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin-left: 250px;
             margin-top: 80px;
             width: calc(100% - 250px);
             box-sizing: border-box;
-            padding: 3rem;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
-        
-        .section-header {
-            text-align: center;
-            position: relative;
-            margin-bottom: 3rem;
-        }
-        
+
         .section-title {
             font-size: 2.5rem;
-            color: #ffffff;
-            margin-bottom: 5px;
-            font-weight: 700;
-            letter-spacing: 3px;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .glow-line {
-            height: 3px;
-            width: 200px;
-            margin: 15px auto 20px;
-            background: linear-gradient(90deg, rgba(0,123,255,0), #0095ff, #00c6ff, #0095ff, rgba(0,123,255,0));
-            border-radius: 5px;
-            position: relative;
-            box-shadow: 0 0 10px rgba(0,149,255,0.7), 0 0 20px rgba(0,149,255,0.4);
-            animation: pulse 3s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { opacity: 0.7; box-shadow: 0 0 10px rgba(0,149,255,0.7), 0 0 20px rgba(0,149,255,0.4); }
-            50% { opacity: 1; box-shadow: 0 0 15px rgba(0,149,255,0.9), 0 0 30px rgba(0,149,255,0.6); }
-            100% { opacity: 0.7; box-shadow: 0 0 10px rgba(0,149,255,0.7), 0 0 20px rgba(0,149,255,0.4); }
-        }
-        
-        .section-subtitle {
-            color: #a1c4fd;
+            color: #eeeeee;
             text-align: center;
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            font-weight: 400;
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-weight: 600;
         }
-        
-        .recommendation-content {
-            max-width: 900px;
+
+        .recommendation-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 1200px;
             margin: 0 auto;
-            position: relative;
         }
-        
+
         .recommendation-card {
-            background: rgba(25, 25, 30, 0.8);
-            border-radius: 15px;
-            overflow: hidden;
             display: flex;
             flex-direction: column;
-            transition: all 0.5s ease;
-            border: 1px solid rgba(80, 80, 80, 0.3);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-            position: relative;
-        }
-        
-        .recommendation-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #007bff, #00c6ff);
-            z-index: 10;
-        }
-        
-        .recommendation-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-            border-color: rgba(161, 196, 253, 0.5);
-        }
-        
-        .quote-icon {
-            position: absolute;
-            color: rgba(0, 123, 255, 0.1);
-            font-size: 8rem;
-            top: -30px;
-            left: 20px;
-            z-index: 0;
-        }
-        
-        .recommendation-header {
-            display: flex;
             align-items: center;
-            padding: 25px 30px 15px;
-            position: relative;
-            z-index: 5;
+            background-color: rgba(30, 30, 30, 0.7);
+            border-radius: 10px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(80, 80, 80, 0.3);
+            text-align: center;
         }
-        
-        .recommender-avatar {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #0095ff;
-            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
-            margin-right: 20px;
+
+        .recommendation-card:hover {
+            transform: translateY(-5px);
+            background-color: rgba(40, 40, 40, 0.8);
+            border-color: #a1c4fd;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
         }
-        
-        .recommender-info {
-            flex: 1;
-        }
-        
-        .recommender-name {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin: 0 0 5px;
-            color: #ffffff;
-        }
-        
-        .recommender-title {
-            font-size: 1rem;
-            color: #a1c4fd;
-            margin: 0;
-        }
-        
-        .recommendation-image-container {
-            width: 100%;
-            padding: 0 30px 30px;
-            z-index: 2;
-        }
-        
+
         .recommendation-image {
             width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-            border: 1px solid rgba(0, 149, 255, 0.2);
+            height: auto;
+            border-radius: 4px;
             transition: all 0.3s ease;
         }
-        
-        .recommendation-badges {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 40px;
-        }
-        
-        .badge {
-            background: rgba(0, 123, 255, 0.15);
-            color: #a1c4fd;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            border: 1px solid rgba(0, 149, 255, 0.3);
-            display: flex;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-        
-        .badge i {
-            margin-right: 8px;
-        }
-        
-        .badge:hover {
-            background: rgba(0, 123, 255, 0.25);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .prompt-container {
-            text-align: center;
-            margin-top: 40px;
-        }
-        
-        .recommendation-prompt {
-            background: rgba(0, 123, 255, 0.1);
-            border: 1px solid rgba(0, 149, 255, 0.3);
-            border-radius: 10px;
-            padding: 20px 30px;
-            display: inline-block;
-            max-width: 500px;
-            position: relative;
-        }
-        
-        .recommendation-prompt p {
-            margin: 0;
+
+        .recommender-name {
+            font-size: 1rem;
             color: #c2e9fb;
-            font-size: 1.1rem;
-            font-style: italic;
+            font-weight: 500;
         }
-        
-        .recommendation-prompt i {
-            color: #0095ff;
-            margin-right: 10px;
-        }
-        
-        /* Custom animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .fade-in-up {
-            animation: fadeInUp 1s ease forwards;
-        }
-        
-        .delay-1 {
-            animation-delay: 0.2s;
-        }
-        
-        .delay-2 {
-            animation-delay: 0.4s;
-        }
-        
-        .delay-3 {
-            animation-delay: 0.6s;
-        }
-        
+
         /* Responsive adjustments */
         @media (max-width: 1200px) {
             .recommendations-container {
-                width: 100%;
-                margin-left: 0;
-                padding: 2rem;
-            }
-            
-            .section-title {
-                font-size: 2.5rem;
-            }
-            
-            .recommender-name {
-                font-size: 1.2rem;
+                width: calc(100% - 200px);
+                margin-left: 200px;
             }
         }
-        
+
         @media (max-width: 768px) {
-            .recommendation-header {
-                flex-direction: column;
-                text-align: center;
+            .recommendations-container {
+                width: 100%;
+                margin-left: 0;
+                padding: 20px;
+                margin-top: 60px;
             }
-            
-            .recommender-avatar {
-                margin-right: 0;
-                margin-bottom: 15px;
-            }
-            
-            .recommendation-badges {
-                flex-direction: column;
-                align-items: center;
-            }
-            
             .section-title {
                 font-size: 2rem;
+            }
+            .recommendation-card {
+                padding: 20px;
             }
         }
     </style>
@@ -290,50 +94,16 @@
 </head>
 <body>
     <div class="recommendations-container">
-        <div class="section-header fade-in-up">
-            <h1 class="section-title">PROFESSIONAL RECOMMENDATION</h1>
-            <div class="glow-line"></div>
-            
-        </div>
+        <h1 class="section-title">Professional Recommendations</h1>
         
-        <div class="recommendation-content">
-            <div class="recommendation-card fade-in-up delay-1">
-                <i class="fas fa-quote-left quote-icon"></i>
-                
-                
-                
-                <div class="recommendation-image-container">
-                    <img src="./assets/endorsement.png" alt="Safa K Shubbar Recommendation" class="recommendation-image">
-                </div>
+        <div class="recommendation-grid">
+            <div class="recommendation-card">
+                <img src="./assets/endorsement.png" alt="Safa K Shubbar Recommendation" class="recommendation-image">
+                <p class="recommender-name">- Safa K. Shubbar, Kent State University</p>
             </div>
-            
-            
-            
         </div>
     </div>
     
     <script src="nav.js"></script>
-    <script>
-        // Detect when elements enter viewport to trigger animations
-        document.addEventListener('DOMContentLoaded', function() {
-            const fadeElements = document.querySelectorAll('.fade-in-up');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-            
-            fadeElements.forEach(element => {
-                element.style.opacity = 0;
-                observer.observe(element);
-            });
-        });
-    </script>
 </body>
 </html>
