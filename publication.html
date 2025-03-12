@@ -350,7 +350,9 @@
         .action-button-container {
             display: flex;
             justify-content: center;
+            gap: 20px;
             margin-top: 40px;
+            flex-wrap: wrap;
         }
         
         .action-button {
@@ -378,6 +380,15 @@
         
         .action-button i {
             margin-right: 10px;
+        }
+        
+        .springer-button {
+            background: linear-gradient(45deg, #4caf50, #8bc34a);
+        }
+        
+        .springer-button:hover {
+            background: linear-gradient(45deg, #388e3c, #7cb342);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.5);
         }
         
         /* Added animation for image fade-in */
@@ -410,6 +421,17 @@
             
             .results-images-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .action-button-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .action-button {
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 15px;
             }
         }
     </style>
@@ -495,7 +517,10 @@
                 
                 <div class="action-button-container">
                     <a href="https://drive.google.com/file/d/1nme1CyIl8KE9BYoVFVjJ0x2m87Q2jMjW/view?usp=sharing" target="_blank" class="action-button">
-                        <i class="fas fa-file-pdf"></i> Access Full Research
+                        <i class="fas fa-file-pdf"></i> Access Research Paper
+                    </a>
+                    <a href="https://link.springer.com/chapter/10.1007/978-3-031-84460-7_31" target="_blank" class="action-button springer-button">
+                        <i class="fas fa-book"></i> Springer eBook
                     </a>
                 </div>
             </div>
