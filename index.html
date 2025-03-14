@@ -28,35 +28,6 @@
             min-height: 100vh;
             line-height: 1.6;
             overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Added animated particles background filter */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 25% 25%, rgba(56, 189, 248, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(56, 189, 248, 0.03) 0%, transparent 50%);
-            animation: backgroundShift 15s infinite alternate;
-            z-index: 0;
-        }
-
-        /* Added noise texture overlay */
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: 1;
         }
 
         .hero {
@@ -66,7 +37,6 @@
             align-items: center;
             padding: 2rem;
             position: relative;
-            z-index: 2;
         }
 
         .hero::before {
@@ -76,39 +46,21 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
-            filter: blur(40px);
+            background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.1) 0%, transparent 50%);
             pointer-events: none;
         }
 
         .content-left {
             padding: 2rem;
             z-index: 1;
-            position: relative;
         }
 
-        /* Added glow effect to intro text */
         .intro-text {
             font-size: 1.5rem;
             color: var(--accent-color);
             margin-bottom: 1rem;
             opacity: 0;
             animation: slideUp 0.5s ease forwards;
-            text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
-            position: relative;
-        }
-
-        /* Added highlight line */
-        .intro-text::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 60px;
-            height: 2px;
-            background: var(--accent-color);
-            filter: blur(1px);
-            animation: glowPulse 3s infinite;
         }
 
         .name {
@@ -117,7 +69,6 @@
             margin-bottom: 1rem;
             opacity: 0;
             animation: slideUp 0.5s ease forwards 0.2s;
-            filter: drop-shadow(0 0 15px rgba(248, 250, 252, 0.2));
         }
 
         .role-container {
@@ -131,10 +82,6 @@
             font-size: 1.7rem;
             color: var(--accent-color);
             font-weight: 600;
-            background: linear-gradient(90deg, var(--accent-color), #0ea5e9);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.3));
         }
 
         .description {
@@ -143,11 +90,6 @@
             margin-bottom: 2rem;
             opacity: 0;
             animation: slideUp 0.5s ease forwards 0.6s;
-            position: relative;
-            backdrop-filter: blur(2px);
-            padding: 10px;
-            border-radius: 8px;
-            background: rgba(15, 23, 42, 0.1);
         }
 
         .cta-buttons {
@@ -164,49 +106,26 @@
             text-decoration: none;
             transition: var(--transition);
             font-size: 1rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Button glow effect */
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.3) 0%, transparent 70%);
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .btn:hover::before {
-            opacity: 1;
         }
 
         .btn-primary {
             background: var(--accent-color);
             color: #0f172a;
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
         }
 
         .btn-primary:hover {
             background: #0ea5e9;
             transform: translateY(-2px);
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.7);
         }
 
         .btn-secondary {
             border: 2px solid var(--accent-color);
             color: var(--accent-color);
-            box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
         }
 
         .btn-secondary:hover {
             background: rgba(56, 189, 248, 0.1);
             transform: translateY(-2px);
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
         }
 
         .content-right {
@@ -224,43 +143,13 @@
             animation: fadeIn 0.5s ease forwards 1s;
         }
 
-        /* Enhanced profile image effects */
         .profile-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
             border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            box-shadow: 
-                0 0 30px rgba(56, 189, 248, 0.3),
-                0 0 60px rgba(56, 189, 248, 0.1);
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
             animation: morphing 15s ease-in-out infinite;
-            filter: contrast(1.05) brightness(1.05);
-        }
-
-        /* Added orbital circles around profile */
-        .profile-container::before,
-        .profile-container::after {
-            content: '';
-            position: absolute;
-            border-radius: 50%;
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            filter: blur(1px);
-        }
-
-        .profile-container::before {
-            top: -30px;
-            left: -30px;
-            right: -30px;
-            bottom: -30px;
-            animation: orbit 20s linear infinite;
-        }
-
-        .profile-container::after {
-            top: -15px;
-            left: -15px;
-            right: -15px;
-            bottom: -15px;
-            animation: orbit 15s linear infinite reverse;
         }
 
         .social-links {
@@ -278,13 +167,11 @@
             color: var(--text-secondary);
             font-size: 1.5rem;
             transition: var(--transition);
-            filter: drop-shadow(0 0 3px rgba(148, 163, 184, 0.2));
         }
 
         .social-links a:hover {
             color: var(--accent-color);
             transform: translateY(-3px);
-            filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.5));
         }
 
         @keyframes morphing {
@@ -309,61 +196,6 @@
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
-        }
-
-        @keyframes orbit {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        @keyframes glowPulse {
-            0% { opacity: 0.5; filter: blur(1px); }
-            50% { opacity: 1; filter: blur(2px); }
-            100% { opacity: 0.5; filter: blur(1px); }
-        }
-
-        @keyframes backgroundShift {
-            0% { background-position: 0% 0%; }
-            100% { background-position: 100% 100%; }
-        }
-
-        /* Added floating data elements */
-        .data-particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: -1;
-        }
-
-        .data-particle {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: var(--accent-color);
-            border-radius: 50%;
-            opacity: 0.2;
-            filter: blur(1px);
-            animation: float 15s infinite linear both;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(100vh) translateX(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.2;
-            }
-            90% {
-                opacity: 0.2;
-            }
-            100% {
-                transform: translateY(-100px) translateX(50px);
-                opacity: 0;
-            }
         }
 
         @media (max-width: 968px) {
@@ -400,23 +232,17 @@
             .description {
                 margin: 0 auto 2rem;
             }
-
-            /* Added responsive adjustments for filters */
-            .intro-text::after {
-                left: 50%;
-                transform: translateX(-50%);
-            }
         }
     </style>
     <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
 </head>
 <body>
-    <div class="data-particles" id="particles"></div>
     <main class="hero">
         <div class="content-left">
             <p class="intro-text">Welcome to my Data Universe!</p>
             <h1 class="name">Likhitha Marrapu</h1>
         
+
             <div class="role-container">
                 <span id="role-text"></span>
             </div>
@@ -434,6 +260,8 @@
                 <img src="./assets/lik_head.png" alt="Likhitha Marrapu" class="profile-image">
             </div>
         </div>
+
+        
     </main>
 
     <script>
