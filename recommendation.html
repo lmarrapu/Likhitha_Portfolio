@@ -154,6 +154,7 @@
             width: 100%;
             padding: 0 30px 30px;
             z-index: 2;
+            position: relative;
         }
         
         .recommendation-image {
@@ -162,6 +163,15 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
             border: 1px solid rgba(0, 149, 255, 0.2);
             transition: all 0.3s ease;
+        }
+        
+        .recommendation-attribution {
+            text-align: right;
+            color: #a1c4fd;
+            font-style: italic;
+            margin-top: 15px;
+            font-size: 1rem;
+            padding-right: 10px;
         }
         
         .recommendation-badges {
@@ -284,6 +294,11 @@
             .section-title {
                 font-size: 2rem;
             }
+            
+            .recommendation-attribution {
+                text-align: center;
+                padding-right: 0;
+            }
         }
     </style>
     <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
@@ -304,6 +319,7 @@
                 
                 <div class="recommendation-image-container">
                     <img src="./assets/endorsement.png" alt="Safa K Shubbar Recommendation" class="recommendation-image">
+                    <div class="recommendation-attribution">– Safa K. Shubbar, Part-time Instructor, Kent State University.</div>
                 </div>
             </div>
             
