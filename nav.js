@@ -12,7 +12,7 @@ function loadHeader() {
                 <a href="https://www.linkedin.com/in/likhitha-marrapu-9964001b4/" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/lmarrapu" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="mailto:likhithamarrapu811@gmail.com"><i class="fas fa-envelope"></i></a>
-                <a href="https://drive.google.com/file/d/1-unKWKfur9c7YafcqZ1lOS8irpXpQ_k_/view?usp=sharing" class="download-btn" target="_blank"><i class="fas fa-download"></i> Resume</a>
+                <a href="https://drive.google.com/file/d/1c3cQafTRFf9qS7WoRbu7MNecr3Up3Pb7/view?usp=sharing" class="download-btn" target="_blank"><i class="fas fa-download"></i> Resume</a>
             </div>
         </header>
     `;
